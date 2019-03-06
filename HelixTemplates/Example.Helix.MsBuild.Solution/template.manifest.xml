@@ -7,7 +7,7 @@
   <saveOnCreate>true</saveOnCreate>
   <templateEngine type="LaubPlusCo.Foundation.HelixTemplating.TemplateEngine.DefaultHelixTemplateEngine, LaubPlusCo.Foundation.HelixTemplating" />
   <replacementTokens>
-    <token key="$publishUrl$" displayName="Publish to file path" required="true" default="C:\Website\Sitecore.Solution\Website" input="Text" />
+    <token key="$publishUrl$" displayName="Publish to file path" required="true" default="C:\Websites\Sitecore.Solution\Website" input="Text" />
     <token key="$autopublishonbuild$" displayName="Enable auto-publish on build" default="true" input="Selection" required="true">
       <option name="true" />
       <option name="false" />
