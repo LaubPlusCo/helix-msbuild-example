@@ -1,0 +1,39 @@
+<!--
+***********************************************************************************************
+Website.TransformXml.targets
+  
+  Transform any xml files located in publish root folder using xdt.
+  
+  [Naming convention]
+  
+    [filename].[extension].{Configuration}|Any].transform
+   
+     Ex.         
+        web.config.any.transform
+        web.config.debug.transform
+        somefile.xml.any.transform
+        web.config.release.transform
+       
+       
+                                                                      [Anders Laub // Laub+Co]
+                                                                      
+***********************************************************************************************
+-->
+
+<Project>
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(MSBuildToolsVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="RunTransforms" AfterTargets="WebPublish">
+    <ItemGroup>
+      <SourceTransformFiles Include="**\*.$(Configuration).transform;**\*.Any.transform" />
+      <TransformFiles Include="%(SourceTransformFiles.Identity)">
+        <DestinationFile Condition="'@(SourceTransformFiles)'!=''">$(PublishRootDirectory)%(RelativeDir)$([System.String]::Copy('%(Identity)').Split('.')[0]).$([System.String]::Copy('%(Identity)').Split('.')[1])</DestinationFile>
+      </TransformFiles>
+    </ItemGroup>
+    <Message Importance="High" Text="Transforming %(TransformFiles.FullPath)" Condition="'@(SourceTransformFiles)'!=''" />
+    <Warning Text="Could not find destination file %(TransformFiles.DestinationFile) for %(TransformFiles.Identity)" Condition="'@(SourceTransformFiles)'!='' And !Exists(%(TransformFiles.DestinationFile))" />
+    <TransformXml Source="@(TransformFiles)"
+                  Transform="%(FullPath)"
+                  Destination="%(DestinationFile)"
+                  Condition="'@(TransformFiles)'!='' And Exists(%(DestinationFile))" />
+  </Target>
+</Project>
