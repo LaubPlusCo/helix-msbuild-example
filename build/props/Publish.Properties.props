@@ -20,19 +20,16 @@ Publish.Properties.props
     <!-- PublishRootDirectory 
             Your Sitecore website root directory, used for publishing and xml transformations 
               Note: Override this property in .csproj or local Directory.Build.props file for specific publish targets -->
-
     <PublishRootDirectory>C:\Websites\Sitecore.Solution\Website</PublishRootDirectory>
 
     <!-- AutoPublishOnBuild
           Toogles automatic-publishing on builds, including from VS 
-          see ./build/targets/Website.AutoPublish.targets for details
-          -->
+          see ./build/targets/Website.AutoPublish.targets for details -->
     <AutoPublishOnBuild>true</AutoPublishOnBuild>
 
     <!-- RunXmlTransformsOnPublish
           Toggles transforming xml files post publishing, 
-          see ./build/targets/Website.TransformXml.targets for details
-     -->
+          see ./build/targets/Website.TransformXml.targets for details -->
     <RunXmlTransformsOnPublish>true</RunXmlTransformsOnPublish>
     
     <WebPublishMethod>FileSystem</WebPublishMethod>
