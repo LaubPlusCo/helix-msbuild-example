@@ -23,18 +23,6 @@ The example utilize a Directory.Build.props and a Directory.Build.target file on
 
 By separating the msbuild setup from the .csproj files these only contain project related setup and deviations from the solution-wide setup.
 
-Please look at these files to understand the setup:
-
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/src/Feature/DummyContent/website/Feature.DummyContent.csproj
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.targets
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Content.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.PackageReferences.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Properties.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Publish.Properties.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.AutoPublish.targets
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.TransformXml.targets
-
 
 ### Automatic publishing from Visual Studio
 
@@ -59,6 +47,18 @@ Publishing is controlled through properties set in [Publish.Properties.props](ht
 
 To override these publishing settings locally you can create a `Publish.Properties.props.user` file in /build/props
 
+Please look at these files for details on the solution setup:
+
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/src/Feature/DummyContent/website/Feature.DummyContent.csproj
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.targets
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Content.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.PackageReferences.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Properties.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Publish.Properties.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.AutoPublish.targets
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.TransformXml.targets
+
 ### Visual Studio Project and Solution template
 
 Configure the VS extension to use the ./HelixTemplate folder as template directory or copy these to your template directory.  
@@ -66,6 +66,9 @@ Configure the VS extension to use the ./HelixTemplate folder as template directo
 When using the solution template, unzip the module template first (the extension does not support templates in a template for apparent reasons).
 
 Upcoming release of the VS extension add relative path support for project templates, allowing you to easily keep these under source control per solution without having to change your settings.
+
+
+
 
 ## Useful Links and Resources
 
