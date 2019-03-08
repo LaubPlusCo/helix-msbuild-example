@@ -1,7 +1,7 @@
 
 # Sitecore Helix Solution MS Build Example  
 
-This solution shows how you can use msbuild and the new dotnetcore project format in a Sitecore Helix solution.  
+This solution shows how you can use msbuild and the "new" dotnet project format in a Sitecore Helix solution.  
 
 No Gulp, Grunt, Cake, nant or other task runner beside msbuild. No custom build tasks or required nuget references.  
 
@@ -75,3 +75,7 @@ Upcoming release of the VS extension add relative path support for project templ
 - [How to upgrade your solution .csproj files](https://natemcmaster.com/blog/2017/03/09/vs2015-to-vs2017-upgrade/) to the "new" format.
 - [VS2017 Extension for working with project files](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
 - [Sitecore Visual Studio Helix Templates extension Git repo](https://github.com/LaubPlusCo/helix-msbuild-example)
+
+# PLEASE CONTRIBUTE OR COMMENT
+
+Please contribute to this example, comment on the approach, share your feelings..
