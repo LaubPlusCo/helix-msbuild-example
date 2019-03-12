@@ -1,7 +1,10 @@
 <templateManifest typeOfTemplate="Solution">
   <name>Clean Helix Solution with msbuild targets for auto-publishing.</name>
-  <description>A blank Helix Solution with msbuild targets setup. The template uses the VS 2017 /dotnetcore project file format.</description>
-  <version>0.0.1</version>
+  <description>Blank Helix Solution with msbuild targets setup. 
+    The template uses the VS 2017 dotnet project file format. 
+    
+    NOTE: Require VS2017 (15.6) or newer</description>
+  <version>1.0.0</version>
   <author>Anders Laub</author>
   <sourceFolder>/src</sourceFolder>
   <saveOnCreate>true</saveOnCreate>

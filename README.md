@@ -23,7 +23,6 @@ The example utilize a Directory.Build.props and a Directory.Build.target file on
 
 By separating the msbuild setup from the .csproj files these only contain project related setup and deviations from the solution-wide setup.
 
-
 ### Automatic publishing from Visual Studio
 
 Publishing is controlled through properties set in [Publish.Properties.props](https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Properties.props)
@@ -67,8 +66,15 @@ When using the solution template, unzip the module template first (the extension
 
 Upcoming release of the VS extension add relative path support for project templates, allowing you to easily keep these under source control per solution without having to change your settings.
 
+### Website folder name convention
 
+You may notice that the project root folder in this example is named `website` rather than `code`.
 
+See [this pr from Rob Erlam](https://github.com/Sitecore/Helix.Docs/pull/15/files/a194b50dc59e01c8967f29079f9a8381043bdc98#diff-7e720abd1441590c56b5f15a190e9388) to the Helix docs. Naming the project root folder according to responsibility area in the solution - or really the publish target - makes much more sense than using the generic term `code`. I hope this pull request is accepted soon.
+
+For existing solutions that follow the old convention of naming the folder `code` should of course stick to this until it make sense to change this. There are no buildtime dependencies on the naming of folders in this example as was the case with the Gulp tasks shown in the Habitat example.
+
+The HelixTemplates included in this example use a replacement token for the folder name. Adjust the template manifest and template files to match your solution needs.
 
 ## Useful Links and Resources
 
