@@ -2,13 +2,16 @@
 ***********************************************************************************************
 Publish.Properties.props
   
-  Properties related to publishing projects and solution 
-  
+  Properties related to publishing projects and solution.
+
+  These properties can be overridden locally by adding a file named Publish.Properties.props.user
+  F. ex. to control the PublishRootDirectory location on your dev machine if it differ from the 
+
   *** [IMPORTANT] ***
   
     These props are only intended for projects targeting classic .NET  (net4xx) framework projects. 
     The import of this file is conditional on targetframework net4xx and 
-    will/should not be loaded when building projects with other target frameworks (.netstandard etc.)
+    will/should not be loaded when building projects with other target frameworks (netstandard etc.)
   
   
                                                                       [Anders Laub // Laub+Co]
@@ -39,6 +42,11 @@ Publish.Properties.props
           Ex. web.config.debug.xdt or web.config.any.xdt -->
     <XmlTransformFilePostfix>xdt</XmlTransformFilePostfix>
 
+    <!-- LegacyRemovePrivatePackageReference
+          Prevent packagereference assemblies to be copied when privateassets=all|runtime
+          even though the package structure does not follow the current conventions.  
+          see ./build/targets/RemovePrivatePackageReference.targets for details -->
+    <LegacyRemovePrivatePackageReference>true</LegacyRemovePrivatePackageReference>
 
     <WebPublishMethod>FileSystem</WebPublishMethod>
     <LastUsedBuildConfiguration>$(Configuration)</LastUsedBuildConfiguration>

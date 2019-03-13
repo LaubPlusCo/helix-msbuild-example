@@ -1,0 +1,34 @@
+<!--
+***********************************************************************************************
+RemovePrivatePackageReference.targets
+  
+  This is a hack to ensure privateassets = all is handled similar to reference 
+  private=true (copy local false) even for legacy nugets. 
+  
+  Note that this hack is only intended to help legacy solutions where nugets owners hasn't 
+  updated their packages. It is not intended as a long-term sustainable solution. 
+  
+                                                                      [Anders Laub // Laub+Co]
+***********************************************************************************************
+-->
+
+<Project>
+  <Target Name="RemovePrivatePackageReference" AfterTargets="ResolveReferences" Condition="$(LegacyRemovePrivatePackageReference) == 'true'">
+    <ItemGroup>
+      <_PrivatePackagesReferences Include="@(PackageReference)"
+                                  Condition="%(PackageReference.PrivateAssets) == 'all' or $([System.String]::Copy('%(PackageReference.PrivateAssets)').Contains('runtime'))">
+        <NuGetPackageId>%(Identity)</NuGetPackageId>
+      </_PrivatePackagesReferences>
+    </ItemGroup>
+    <ItemGroup>
+      <_ReferenceCopyLocalPathsFromPackages Include="@(ReferenceCopyLocalPaths)" Condition="%(ReferenceCopyLocalPaths.NuGetPackageId) != ''" />
+    </ItemGroup>
+    <ItemGroup>
+      <_PrivatePackageReferenceCopyLocalPaths 
+        Include="@(_ReferenceCopyLocalPathsFromPackages)" Condition="'%(NuGetPackageId)' != '' and '@(_PrivatePackagesReferences)' != ''" />
+    </ItemGroup>
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="'%(Identity)' != '' and '@(_PrivatePackageReferenceCopyLocalPaths)' != ''" />
+    </ItemGroup>
+  </Target>
+</Project>
