@@ -28,7 +28,7 @@ Website.TransformXml.targets
     <ItemGroup>
       <SourceTransformFiles Include="**\*.$(Configuration).$(XmlTransformFilePostfix);**\*.Any.$(XmlTransformFilePostfix)" />
       <TransformFiles Include="%(SourceTransformFiles.Identity)">
-        <DestinationFile Condition="'@(SourceTransformFiles)'!=''">$(PublishRootDirectory)%(RelativeDir)$([System.String]::Copy('%(Identity)').Split('.')[0]).$([System.String]::Copy('%(Identity)').Split('.')[1])</DestinationFile>
+        <DestinationFile Condition="'@(SourceTransformFiles)'!=''">$(PublishRootDirectory)%(RelativeDir)$([System.Text.RegularExpressions.Regex]::Match(%(Filename), `.*?\.config`))</DestinationFile>
       </TransformFiles>
     </ItemGroup>
 
