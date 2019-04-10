@@ -11,6 +11,7 @@ No Gulp, Grunt, Cake, nant or other task runner beside msbuild. No custom build 
 - XML tranformation for config files and other xml on publish
 - No dependencies on other than Visual Studio standard build targets
 - PackageReferences for dependencies
+  - Example on including content files from PackageReferences, see Foundation.Serialization module
 - Helix solution and Module templates for the [Sitecore Visual Studio Helix Templates extension]([https://github.com/LaubPlusCo/helix-msbuild-example](https://marketplace.visualstudio.com/items?itemName=AndersLaublaubplusco.SitecoreHelixVisualStudioTemplates))
 
 > ___
