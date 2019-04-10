@@ -55,10 +55,6 @@ Globs are used in this file to include common ressource files and exclude other.
 
 For your solution you may need to add font ressource files, other image types or similar. These files can also be individually included as Content in a project by modifying the "Build Action" property on the file in Visual Studio or manually edit the .csproj file.
 
-To prevent common packagereferences from being copied to the output directory and included in the publish, a custom target called RemovePrivatePackageReference is run after the ResolveReference target.
-
-This target look for PrivateAssets = all on the packagereferences and stop any assemblies from these to be copied local. This does not prevent other packagereferences where assets are not set to be private, from copying their transient inherited dependencies so please note that system or sitecore assemblies can originate from other than direct packagereferences. If this become an issue, simply add a new target that deletes any such unwanted inherited assemblies from the temporary publish location AfterTarget="CopyAllFilesToSingleFolderForPackage"
-
 ### More details
 
 Please look at these files for details on the solution setup:
