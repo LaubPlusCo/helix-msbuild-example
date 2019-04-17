@@ -45,11 +45,20 @@ Publishing is controlled through properties set in [Publish.Properties.props](ht
     <RunXmlTransformsOnPublish>true</RunXmlTransformsOnPublish>
 ```
 
-To override these publishing settings locally you can create a `Publish.Properties.props.user` file in /build/props
+To override these publishing settings locally you can create a `Website.Publishing.props.user` file in /build/props
+
+_Ex. local Website.Publishing.props.user_
+```xml
+<Project>
+  <PropertyGroup>
+    <PublishRootDirectory>C:\Websites\Sitecore.Solution.Testing\Website</PublishRootDirectory>
+  </PropertyGroup>
+</Project>
+```
 
 ### Controlling what is published
 
-The Content item group that control the project file content is configured in [./build/props/Build.Content.props](https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Content.props)
+The Content item group that control the project file content is configured in [./build/props/Website.ProjectContent.props](https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.ProjectContent.props)
 
 Globs are used in this file to include common ressource files and exclude other.
 
@@ -62,12 +71,14 @@ Please look at these files for details on the solution setup:
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/src/Feature/DummyContent/website/Feature.DummyContent.csproj
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.props
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/Directory.Build.targets
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Content.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.PackageReferences.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Build.Properties.props
-- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Publish.Properties.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.ProjectContent.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.PackageReferences.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.BuildProperties.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.Publishing.props
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.AutoPublish.targets
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.TransformXml.targets
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.DoNotPublishAssembly.props
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.RemoveDoNotPublishAssembly.targets
 
 ### Visual Studio Project and Solution template
 

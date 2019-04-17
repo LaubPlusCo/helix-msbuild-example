@@ -27,15 +27,17 @@ Website.TransformXml.targets
     <PropertyGroup>
       <PublishRootDirectory Condition="!HasTrailingSlash('$(PublishRootDirectory)')">$(PublishRootDirectory)\</PublishRootDirectory>
     </PropertyGroup>
-    
+
     <ItemGroup>
       <SourceTransformFiles Include="**\*.$(Configuration).$(XmlTransformFilePostfix);**\*.Any.$(XmlTransformFilePostfix)" />
       <TransformFiles Include="%(SourceTransformFiles.Identity)">
         <DestinationFile Condition="'@(SourceTransformFiles)'!=''">$(PublishRootDirectory)%(RelativeDir)$([System.Text.RegularExpressions.Regex]::Match(%(Filename), `.*?\.config`))</DestinationFile>
       </TransformFiles>
     </ItemGroup>
+
     <Message Importance="High" Text="Transforming %(TransformFiles.RelativeDir)%(TransformFiles.Identity) into %(TransformFiles.DestinationFile)" Condition="'@(SourceTransformFiles)'!=''" />
     <Warning Text="Could not find destination file %(TransformFiles.DestinationFile) for %(TransformFiles.Identity)" Condition="'@(SourceTransformFiles)'!='' And !Exists(%(TransformFiles.DestinationFile))" />
+
     <TransformXml Source="%(DestinationFile)"
                   Transform="%(FullPath)"
                   Destination="%(DestinationFile)"

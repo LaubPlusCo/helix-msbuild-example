@@ -21,16 +21,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B6DEBDB0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{94A896EC-205A-4870-9B4A-45F4BEA8FF0F}"
 	ProjectSection(SolutionItems) = preProject
-		build\props\Build.Content.props = build\props\Build.Content.props
-		build\props\Build.PackageReferences.props = build\props\Build.PackageReferences.props
-		build\props\Build.Properties.props = build\props\Build.Properties.props
-		build\props\Build.References.props = build\props\Build.References.props
-		build\props\Publish.Properties.props = build\props\Publish.Properties.props
+		build\props\Website.BuildProperties.props = build\props\Website.BuildProperties.props
+		build\props\Website.PackageReferences.props = build\props\Website.PackageReferences.props
+		build\props\Website.ProjectContent.props = build\props\Website.ProjectContent.props
+		build\props\Website.Publishing.props = build\props\Website.Publishing.props
+		build\props\Website.References.props = build\props\Website.References.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "targets", "targets", "{5CF080CB-ED47-4A0E-9C2E-8A8346C51465}"
 	ProjectSection(SolutionItems) = preProject
 		build\targets\Website.AutoPublish.targets = build\targets\Website.AutoPublish.targets
+		build\targets\Website.DoNotPublishAssembly.props = build\targets\Website.DoNotPublishAssembly.props
+		build\targets\Website.RemoveDoNotPublishAssembly.targets = build\targets\Website.RemoveDoNotPublishAssembly.targets
 		build\targets\Website.TransformXml.targets = build\targets\Website.TransformXml.targets
 	EndProjectSection
 EndProject
