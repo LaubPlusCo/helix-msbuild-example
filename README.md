@@ -64,6 +64,39 @@ Globs are used in this file to include common ressource files and exclude other.
 
 For your solution you may need to add font ressource files, other image types or similar. These files can also be individually included as Content in a project by modifying the "Build Action" property on the file in Visual Studio or manually edit the .csproj file.
 
+## Getting back the Publish item command in Solution Explorer
+
+The new project format does not utilize projecttype guids anymore.
+
+This also means that the Visual Studio commands specific for Web Applications are not shown in Solution Explorer.
+
+I really missed being able to right-click on individual files such as js and cshtml files and publishing these without running a project build.
+
+To get a "Publish" button on individual items in Solution Explorer do the following:
+
+1. Add an External tool that runs msbuild
+   1. Open Tools > External Tools >> Add  
+    ![VS 2019 - Create new project dialog](Docs/Images/vs-exttool-publishitem-1.png)
+      - Title: Publish Single Item
+      - Command: $(MSBuildBinPath)MSBuild.exe
+      - Arguments: -t:PublishSingleItem -p:ItemPath=$(ItemPath)
+      - Initial directory: $(ProjectDir)
+      - Check: Use output window
+      Make a note of the count position of the added external tool in the list (see screenshot - and no, we are not in 1995 anymore)
+    1. Save and close
+2. Add Command to Solution Explorer
+   1. Open Tools > Customize >> Commands
+   2. Find and Select in __Context Menu context__ - `Project and Solution Context | Item`  
+    ![VS 2019 - Create new project dialog](Docs/Images/vs-command-publishitem-1.png)
+   3. Add Command >> Tools >> External tool _x_  
+       ![VS 2019 - Create new project dialog](Docs/Images/vs-command-publishitem-2.png)
+   4. Modify Selection >> Change name to "Publish", close and save. _If warned of exe location just press `Yes`_  
+    ![VS 2019 - Create new project dialog](Docs/Images/vs-command-publishitem-3.png)  
+
+__Protip__: You can make Publish Project/Solution commands using the same approach. Just change the arguments for msbuild accordingly on External tool and create command on  `Project and Solution Context | Project` or `Project and Solution Context | Solution`  
+
+_I hope this approach just will be a temporary "hack" until VS provide better command customization support._
+
 ### More details
 
 Please look at these files for details on the solution setup:
@@ -76,17 +109,10 @@ Please look at these files for details on the solution setup:
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.BuildProperties.props
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/props/Website.Publishing.props
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.AutoPublish.targets
+- https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.PublishSingleItem.targets
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.TransformXml.targets
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.DoNotPublishAssembly.props
 - https://github.com/LaubPlusCo/helix-msbuild-example/blob/master/build/targets/Website.RemoveDoNotPublishAssembly.targets
-
-### Visual Studio Project and Solution template
-
-Configure the VS extension to use the ./HelixTemplate folder as template directory or copy these to your template directory.  
-
-When using the solution template, unzip the module template first (the extension does not support templates in a template for apparent reasons).
-
-Upcoming release of the VS extension add relative path support for project templates, allowing you to easily keep these under source control per solution without having to change your settings.
 
 ### Website folder name convention
 

@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "targets", "targets", "{5CF0
 	ProjectSection(SolutionItems) = preProject
 		build\targets\Website.AutoPublish.targets = build\targets\Website.AutoPublish.targets
 		build\targets\Website.DoNotPublishAssembly.props = build\targets\Website.DoNotPublishAssembly.props
+		build\targets\Website.PublishSingleItem.targets = build\targets\Website.PublishSingleItem.targets
 		build\targets\Website.RemoveDoNotPublishAssembly.targets = build\targets\Website.RemoveDoNotPublishAssembly.targets
 		build\targets\Website.TransformXml.targets = build\targets\Website.TransformXml.targets
 	EndProjectSection

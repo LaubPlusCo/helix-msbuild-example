@@ -1,6 +1,6 @@
 <!--
 ***********************************************************************************************
-Build.Properties.props
+Website.Properties.props
   
   Common build properties for all .NET Framework 
   
@@ -25,6 +25,10 @@ Build.Properties.props
         then add 
           Condition="'$(ProjectPublishTarget)' == 'website'" 
         on PropertyGroup and/or in .\Directory.Build.targets|props 
+
+
+   TODO: Rename to Website.Properties.props if relevant in solution - if only used by modules targeting website instances.
+   
   
                                                                       [Anders Laub // Laub+Co]
 ***********************************************************************************************

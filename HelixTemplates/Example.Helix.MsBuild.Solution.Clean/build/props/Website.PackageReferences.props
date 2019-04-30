@@ -1,6 +1,6 @@
 <!--
 ***********************************************************************************************
-Build.PackageReferences.props
+Website.PackageReferences.props
   
   This file is used to add common package references to all solution projects.
 

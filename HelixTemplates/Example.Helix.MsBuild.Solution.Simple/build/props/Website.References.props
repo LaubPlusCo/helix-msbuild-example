@@ -1,6 +1,6 @@
 <!--
 ***********************************************************************************************
-Build.References.props
+Website.References.props
   
   Common .NET Framework 4.x references. 
   
@@ -8,8 +8,10 @@ Build.References.props
   
   *** [IMPORTANT] ***
     These references are only intended for classic .NET  (net4xx) framework projects. 
-    The import of this file is conditional on targetframework starting with net4 and 
+    The import of this file should be conditional on targetframework starting with net4 and 
     will/should not be loaded on other target frameworks (.netstandard etc.)
+
+    Rename to Website.References.props if relevant in solution - if only used by modules targeting website instances.
   
   
                                                                       [Anders Laub // Laub+Co]
