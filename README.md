@@ -128,7 +128,7 @@ The HelixTemplates included in this example use a replacement token for the fold
 
 - [How to upgrade your solution .csproj files](https://natemcmaster.com/blog/2017/03/09/vs2015-to-vs2017-upgrade/) to the "new" format.
 - [VS2017 Extension for working with project files](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
-- [Sitecore Visual Studio Helix Templates extension Git repo](https://github.com/LaubPlusCo/helix-msbuild-example)
+- [Sitecore Visual Studio Helix Templates extension Git repo](https://github.com/LaubPlusCo/LaubPlusCo.Helix.VsTemplates)
 
 # PLEASE CONTRIBUTE OR COMMENT
 
