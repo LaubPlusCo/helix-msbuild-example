@@ -1,7 +1,7 @@
 
 # Sitecore Helix Solution MS Build Example  
 
-This solution shows how you can use msbuild and the "new" dotnet project format in a Sitecore Helix solution.  
+This solution shows how you can use msbuild and the SDK project format in a Sitecore Helix solution.  
 
 No Gulp, Grunt, Cake, nant or other task runner beside msbuild. No custom build tasks or required nuget references.  
 
